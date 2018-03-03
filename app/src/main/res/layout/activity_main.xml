@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     tools:context="com.ha.sushantrao.opentutor.MainActivity">
 
+    <info.hoang8f.widget.FButton
+        android:id="@+id/tutor"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/findtutor"
+        android:layout_alignStart="@+id/findtutor"
+        android:layout_marginBottom="55dp"
+        android:shadowColor="@color/colorShadow"
 
+        android:text="Tutor"/>
 
-</RelativeLayout>
+        <info.hoang8f.widget.FButton
+            android:id="@+id/findtutor"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:shadowColor="@color/colorShadow"
+            android:onClick="findTutor"
+            android:text="Find a Tutor"/>
+
+    </RelativeLayout>
