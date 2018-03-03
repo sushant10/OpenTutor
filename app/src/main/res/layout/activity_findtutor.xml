@@ -41,5 +41,16 @@
         android:layout_alignStart="@+id/SelectClass"
         android:layout_below="@+id/SelectClass" />
 
+    <info.hoang8f.widget.FButton
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerClass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp"
+        android:shadowColor="@color/colorShadow"
+        android:text="Search"
+        android:textSize="15dp"/>
+
 
 </RelativeLayout>

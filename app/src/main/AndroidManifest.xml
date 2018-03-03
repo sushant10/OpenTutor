@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FindtutorActivity"></activity>
+        <activity android:name=".FindtutorActivity" />
+        <activity android:name=".TutorFindListActivity"></activity>
     </application>
 
 </manifest>
