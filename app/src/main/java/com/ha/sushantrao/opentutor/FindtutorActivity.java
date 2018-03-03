@@ -23,9 +23,9 @@ public class FindtutorActivity extends AppCompatActivity {
     List<String> ECE;
     List<String> PH;
     List<String> BC;
-    Map<String,List<String>> classes = new HashMap<String, List<String>>();
-    NiceSpinner spinnerMajor = (NiceSpinner) findViewById(R.id.spinnerMajor);
-    NiceSpinner spinnerClasses = (NiceSpinner) findViewById(R.id.spinnerClass);
+    Map<String,List<String>> classes;
+    NiceSpinner spinnerMajor;
+    NiceSpinner spinnerClasses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,10 @@ public class FindtutorActivity extends AppCompatActivity {
         PH = new LinkedList<>(Arrays.asList("100", "156", "264", "330", "420"));
         BC = new LinkedList<>(Arrays.asList("151", "152", "250", "342", "545"));
 
+        classes = new HashMap<String, List<String>>();
+        spinnerMajor = (NiceSpinner) findViewById(R.id.spinnerMajor);
+        spinnerClasses = (NiceSpinner) findViewById(R.id.spinnerClass);
+
         classes.put("Computer Science",CS);
         classes.put("Mathematics",Math);
         classes.put("Computer Engineering",ECE);
@@ -51,13 +55,13 @@ public class FindtutorActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 index= i;
-                //spinnerClasses.attachDataSource(classes.get(majors.get(index)));
+                spinnerClasses.attachDataSource(classes.get(majors.get(index)));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 index=0;
-                //spinnerClasses.attachDataSource(classes.get(majors.get(index)));
+                spinnerClasses.attachDataSource(classes.get(majors.get(index)));
             }
         });
 
