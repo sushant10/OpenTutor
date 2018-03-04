@@ -1,8 +1,10 @@
 package com.ha.sushantrao.opentutor;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,20 @@ public class TutorRequestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_request);
+
+
+        final ActionBar abar = getSupportActionBar();//line under the action bar
+        View viewActionBar = getLayoutInflater().inflate(R.layout.action_bar_custom, null);
+        ActionBar.LayoutParams params = new ActionBar.LayoutParams(//Center the textview in the ActionBar !
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                Gravity.CENTER);
+        TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.mytext);
+        textviewTitle.setText("Requested");
+        abar.setCustomView(viewActionBar,params);
+        abar.setDisplayShowCustomEnabled(true);
+        abar.setDisplayShowTitleEnabled(false);
+
         tutorImages = new int[]{R.drawable.request_avatar1, R.drawable.request_avatar2, R.drawable.request_avatar3};
         names = new String[]{"Samuel Riessmann", "Darcy Malone", "Jessica Savarese"};
         requested_class = new String[]{"Math 132", "Computer Science 121", "Physics 152"};

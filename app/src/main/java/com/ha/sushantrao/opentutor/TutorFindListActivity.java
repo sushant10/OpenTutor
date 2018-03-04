@@ -1,8 +1,10 @@
 package com.ha.sushantrao.opentutor;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,6 +51,18 @@ public class TutorFindListActivity extends AppCompatActivity {
         //back button
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //heading
+        final ActionBar abar = getSupportActionBar();//line under the action bar
+        View viewActionBar = getLayoutInflater().inflate(R.layout.action_bar_custom, null);
+        ActionBar.LayoutParams params = new ActionBar.LayoutParams(//Center the textview in the ActionBar !
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                Gravity.CENTER);
+        TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.mytext);
+        textviewTitle.setText("Tutor Results");
+        abar.setCustomView(viewActionBar,params);
+        abar.setDisplayShowCustomEnabled(true);
+        abar.setDisplayShowTitleEnabled(false);
 
         tutorImages = new int[]{R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
         tutorNames = new String[]{"Sushant Rao", "Rohan Nanda", "Shubham Batra", "Sharath Ramkumar", "Harriet Smith", "Catherine Walsh"};
