@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".FindtutorActivity" />
         <activity android:name=".TutorFindListActivity" />
-        <activity android:name=".ProfileConfirmActivity"></activity>
+        <activity android:name=".ProfileConfirmActivity" />
+        <activity android:name=".TutorRequestActivity"></activity>
     </application>
 
 </manifest>
