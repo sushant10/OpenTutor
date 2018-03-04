@@ -1,7 +1,9 @@
 package com.ha.sushantrao.opentutor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,9 +16,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import info.hoang8f.widget.FButton;
+
 public class FindtutorActivity extends AppCompatActivity {
     int index;
-
+    int[] tosend;
     List<String> majors;
     List<String> CS ;
     List<String> Math;
@@ -31,6 +35,10 @@ public class FindtutorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findtutor);
+
+        //back button
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         majors = new LinkedList<>(Arrays.asList("Computer Science", "Mathematics", "Computer Engineering", "Public Health", "Biochemistry"));
         CS = new LinkedList<>(Arrays.asList("121", "187", "250", "311", "383"));
@@ -65,11 +73,28 @@ public class FindtutorActivity extends AppCompatActivity {
             }
         });
 
-
-
+        FButton fsearch= (FButton) findViewById(R.id.search);
+        fsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tosend =new int[]{spinnerMajor.getSelectedIndex(),spinnerClasses.getSelectedIndex()};
+                Intent intent = new Intent(FindtutorActivity.this, TutorFindListActivity.class);
+                intent.putExtra("major and class",tosend);
+                startActivity(intent);
+            }
+        });
 
         //int index = 0;
 
         spinnerClasses.attachDataSource(classes.get(majors.get(index)));
+    }
+
+    //on back button click
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id= item.getItemId();
+
+            this.finish();
+        return super.onOptionsItemSelected(item);
     }
 }

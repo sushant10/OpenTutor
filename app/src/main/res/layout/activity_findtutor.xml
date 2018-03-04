@@ -22,7 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/selectMajor"
-        android:layout_below="@+id/selectMajor" />
+        android:layout_below="@+id/selectMajor"
+        app:textTint="@color/colorPrimaryDark"
+        />
 
     <TextView
         android:id="@+id/SelectClass"
@@ -39,7 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/SelectClass"
-        android:layout_below="@+id/SelectClass" />
+        android:layout_below="@+id/SelectClass"
+        app:textTint="@color/colorPrimaryDark"/>
 
     <info.hoang8f.widget.FButton
         android:id="@+id/search"
