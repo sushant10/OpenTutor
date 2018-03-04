@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="170dp"
         android:shadowColor="@color/colorShadow"
-        android:text="Tutor"
+        android:text="Tutor Requests"
         android:textColor="#ffffff"/>
 
         <info.hoang8f.widget.FButton
