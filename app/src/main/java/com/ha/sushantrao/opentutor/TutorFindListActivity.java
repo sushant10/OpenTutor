@@ -1,5 +1,6 @@
 package com.ha.sushantrao.opentutor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class TutorFindListActivity extends AppCompatActivity {
     int[] tutorImages;
     ListView tutorList;
     String[] tutorNames;
+    String[] rating;
 
     int index[];
     List<String> majors;
@@ -48,11 +50,11 @@ public class TutorFindListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tutorImages = new int[]{R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
-        tutorNames = new String[]{"","","","","",""};
+        tutorNames = new String[]{"Sushant Rao","Rohan Nanda","Shubham Batra","Sharath Ramkumar","Harriet Smith","Catherine Walsh"};
         tutorList = (ListView) findViewById(R.id.tutor_list);
+        rating = new String[]{"5.0","4.5","3.2","1.5","4.2","4.6"};
 
-
-        majors = new LinkedList<>(Arrays.asList("Computer Science", "Mathematics", "Computer Engineering", "Public Health", "Biochemistry"));
+        majors = new LinkedList<>(Arrays.asList("Computer Science", "Mathematics", "Computer Engineering", "Public Health", "Biochemistry", "Public Health"));
         CS = new LinkedList<>(Arrays.asList("121", "187", "250", "311", "383"));
         Math = new LinkedList<>(Arrays.asList("131", "132", "233", "235", "311"));
         ECE = new LinkedList<>(Arrays.asList("112", "122", "211", "212", "331"));
@@ -75,6 +77,16 @@ public class TutorFindListActivity extends AppCompatActivity {
         tutorList = (ListView) findViewById(R.id.tutor_list);
         CustomAdapter customAdapter = new CustomAdapter();
         tutorList.setAdapter(customAdapter);
+
+        tutorList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tosend =new int[]{spinnerMajor.getSelectedIndex(),spinnerClasses.getSelectedIndex()};
+                Intent intent = new Intent(FindtutorActivity.this, TutorFindListActivity.class);
+                intent.putExtra("major and class",tosend);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -108,13 +120,17 @@ public class TutorFindListActivity extends AppCompatActivity {
 
 
             View view=getLayoutInflater().inflate(R.layout.customtutorlist_layout, null);
-            CircleImageView im = (CircleImageView) view.findViewById(R.id.imagePerson);
+            CircleImageView dp = (CircleImageView) view.findViewById(R.id.imagePerson);
             TextView nameTutor= (TextView) view.findViewById(R.id.textName);
-           // TextView tutorMajor = (TextView) view.findViewById(R.id.textMajor);
+            TextView tutorMajor = (TextView) view.findViewById(R.id.textMajor);
+            ImageView ratingImage= (ImageView) view.findViewById(R.id.imageRating);
+            TextView tutorRating= (TextView) view.findViewById(R.id.textRating);
 
-            im.setImageResource(tutorImages[position]);
-            nameTutor.setText("Sushant");
-           // tutorMajor.setText("Computer Science");
+            dp.setImageResource(tutorImages[position]);
+            ratingImage.setImageResource(R.drawable.rating);
+            nameTutor.setText(tutorNames[position]);
+            tutorMajor.setText((String)majors.get(position));
+            tutorRating.setText(rating[position]);
 
             return view;
         }

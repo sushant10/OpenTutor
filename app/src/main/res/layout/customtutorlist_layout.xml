@@ -11,7 +11,7 @@
         android:layout_height="60dp"
         android:layout_width="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         app:srcCompat="@mipmap/ic_launcher"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"/>
@@ -28,7 +28,7 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-   <!-- <TextView
+    <TextView
         android:id="@+id/textMajor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +36,28 @@
         android:layout_marginStart="11dp"
         android:layout_toEndOf="@+id/imagePerson"
         android:text="Major"
-        android:textSize="18sp"/>
--->
+        android:textSize="18sp"
+        android:paddingBottom="25dp"/>
+
+    <ImageView
+        android:id="@+id/imageRating"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginStart="330dp"/>
+
+    <TextView
+        android:id="@+id/textRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/imageRating"
+        android:layout_alignTop="@id/imageRating"
+        android:layout_alignRight="@id/imageRating"
+        android:layout_alignBottom="@id/imageRating"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="4.5"
+        android:textColor="#ffffff" />
+
 </RelativeLayout>
