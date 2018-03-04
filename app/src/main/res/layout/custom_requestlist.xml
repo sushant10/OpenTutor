@@ -26,13 +26,13 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textMajor"
+        android:id="@+id/textClasses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textName"
         android:layout_marginStart="11dp"
         android:layout_toEndOf="@+id/imagePerson"
-        android:text="Major"
+        android:text="Class Requested"
         android:textSize="18sp"
         android:paddingBottom="25dp"/>
 
