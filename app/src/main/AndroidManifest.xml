@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".FindtutorActivity" />
-        <activity android:name=".TutorFindListActivity"></activity>
+        <activity android:name=".TutorFindListActivity" />
+        <activity android:name=".ProfileConfirmActivity"></activity>
     </application>
 
 </manifest>

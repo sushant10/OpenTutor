@@ -81,9 +81,13 @@ public class TutorFindListActivity extends AppCompatActivity {
         tutorList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tosend =new int[]{spinnerMajor.getSelectedIndex(),spinnerClasses.getSelectedIndex()};
-                Intent intent = new Intent(FindtutorActivity.this, TutorFindListActivity.class);
-                intent.putExtra("major and class",tosend);
+
+                Intent intent = new Intent(TutorFindListActivity.this, TutorFindListActivity.class);
+                intent.putExtra("name",tutorNames[(int)tutorList.getSelectedItemId()]);
+                intent.putExtra("major",majors.get((int)tutorList.getSelectedItemId()));
+                intent.putExtra("rating",rating[(int)tutorList.getSelectedItemId()]);
+                intent.putExtra("profile image", tutorImages[(int)tutorList.getSelectedItemId()]);
+
                 startActivity(intent);
             }
         });
