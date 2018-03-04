@@ -43,7 +43,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@+id/textDescription"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="95dp"
         android:layout_marginTop="10dp"/>
 
      <TextView
@@ -58,9 +58,62 @@
          android:gravity="center"
          android:text="4.5"
          android:textColor="#ffffff" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textDescription"
+        android:layout_marginTop="45dp"
+        android:gravity="center"
+        android:text="Tutored"
+        android:id="@+id/tutored" />
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textDescription"
+        android:layout_marginTop="12dp"
+        android:text="22"
+        android:textSize="22dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toEndOf="@+id/imageDp"
+        android:layout_marginStart="12dp"
+        android:gravity="center"
+        android:text="12"
+        android:textSize="22dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/reviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tutored"
+        android:layout_alignBottom="@+id/tutored"
+        android:layout_toEndOf="@+id/imageDp"
+        android:gravity="center"
+        android:text="Reviews" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/request"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tutored"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:text="Request Tutor"
+        android:textSize="15dp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:textColor="#ffffff"/>
     <!--  <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

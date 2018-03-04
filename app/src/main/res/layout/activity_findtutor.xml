@@ -53,7 +53,8 @@
         android:layout_marginTop="81dp"
         android:shadowColor="@color/colorShadow"
         android:text="Search"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:textColor="#ffffff"/>
 
 
 </RelativeLayout>

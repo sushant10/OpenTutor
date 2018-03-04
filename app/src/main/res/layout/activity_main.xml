@@ -13,7 +13,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="170dp"
         android:shadowColor="@color/colorShadow"
-        android:text="Tutor"/>
+        android:text="Tutor"
+        android:textColor="#ffffff"/>
 
         <info.hoang8f.widget.FButton
             android:id="@+id/findtutor"
@@ -22,6 +23,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="300dp"
             android:shadowColor="@color/colorShadow"
-            android:text="Find a Tutor"/>
+            android:text="Find a Tutor"
+            android:textColor="#ffffff"/>
 
     </RelativeLayout>

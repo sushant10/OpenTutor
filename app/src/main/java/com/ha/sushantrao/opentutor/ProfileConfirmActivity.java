@@ -1,14 +1,17 @@
 package com.ha.sushantrao.opentutor;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import info.hoang8f.widget.FButton;
 
 public class ProfileConfirmActivity extends AppCompatActivity {
 
@@ -17,6 +20,7 @@ public class ProfileConfirmActivity extends AppCompatActivity {
     TextView textrating;
     CircleImageView profiledp;
     ImageView ratingImage;
+    FButton request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,15 @@ public class ProfileConfirmActivity extends AppCompatActivity {
         textrating= (TextView) findViewById(R.id.textRating);
         profiledp = (CircleImageView) findViewById(R.id.imageDp);
         ratingImage = (ImageView) findViewById(R.id.imageRating);
+        request = (FButton) findViewById(R.id.request);
 
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                request.setButtonColor(Color.rgb(0,200,0));
+                request.setText("Request sent!");
+            }
+        });
         name.setText(namepr);
         description.setText("I am a student at UMass Amherst who has a passion for tutoring in "+major);
         profiledp.setImageResource(dp);
