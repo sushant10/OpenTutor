@@ -345,10 +345,6 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
             try {
                 post.setEntity(new UrlEncodedFormEntity(arguments));
                 HttpResponse response = client.execute(post);
-
-                // Print out the response message
-                System.out.println(EntityUtils.toString(response.getEntity()));
-                System.out.println(response.toString());
                 if(response.toString().contains("200 OK")) {
                     return true;
                 }
