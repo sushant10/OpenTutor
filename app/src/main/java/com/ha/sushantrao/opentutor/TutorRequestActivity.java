@@ -38,7 +38,7 @@ public class TutorRequestActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
-                Intent intent = new Intent(TutorRequestActivity.this, ProfileConfirmActivity.class);
+                Intent intent = new Intent(TutorRequestActivity.this, RequestAcceptConfirmActivity.class);
                 intent.putExtra("name",names[position]);
                 intent.putExtra("requested",requested_class[position]);
                 intent.putExtra("profile image", tutorImages[position]);

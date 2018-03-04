@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ha.sushantrao.opentutor.RequestAcceptConfirmActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageDp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageDp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Name"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/reqClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textName"
+        android:text="Class Requested"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reqClass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Message from student:"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="long message for tutor would go here"
+        android:gravity="center"
+        android:textSize="15sp"/>
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/acceptButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textName"
+        android:layout_below="@+id/textMessage"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="104dp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:text="Accept"
+        android:textColor="#ffffff"
+        android:textSize="15dp" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/declineButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/acceptButton"
+        android:layout_alignBottom="@+id/acceptButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:text="Decline"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:buttonColor="#8c8c8c" />
+
+
+</RelativeLayout>
