@@ -25,6 +25,8 @@ public class TutorFindListActivity extends AppCompatActivity {
     List<String> BC;
     Map<String,List<String>> classes;
 
+    List<String> students;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,8 @@ public class TutorFindListActivity extends AppCompatActivity {
 
         /*TextView a = (TextView) findViewById(R.id.test);
         a.setText(majors.get(index[0]));*/
+
+
 
     }
 
