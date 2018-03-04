@@ -70,8 +70,8 @@ public class TutorFindListActivity extends AppCompatActivity {
         classes.put("Public Health", PH);
         classes.put("Biochemistry", BC);
 
-        // Bundle extras = getIntent().getExtras();
-        // index= extras.getIntArray("major and class");
+         Bundle extras = getIntent().getExtras();
+         index= extras.getIntArray("major and class");
 
         /*TextView a = (TextView) findViewById(R.id.test);
         a.setText(majors.get(index[0]));*/
@@ -137,7 +137,7 @@ public class TutorFindListActivity extends AppCompatActivity {
             dp.setImageResource(tutorImages[position]);
             ratingImage.setImageResource(R.drawable.rating);
             nameTutor.setText(tutorNames[position]);
-            tutorMajor.setText((String)majors.get(position));
+            tutorMajor.setText((String)majors.get(index[0]));
             tutorRating.setText(rating[position]);
 
             return view;
