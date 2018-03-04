@@ -2,7 +2,13 @@ package com.ha.sushantrao.opentutor;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.angmarch.views.NiceSpinner;
@@ -13,10 +19,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class TutorFindListActivity extends AppCompatActivity {
 
-    int index[];
+    int[] tutorImages;
+    ListView tutorList;
+    String[] tutorNames;
 
+    int index[];
     List<String> majors;
     List<String> CS ;
     List<String> Math;
@@ -36,6 +47,11 @@ public class TutorFindListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        tutorImages = new int[]{R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
+        tutorNames = new String[]{"","","","","",""};
+        tutorList = (ListView) findViewById(R.id.tutor_list);
+
+
         majors = new LinkedList<>(Arrays.asList("Computer Science", "Mathematics", "Computer Engineering", "Public Health", "Biochemistry"));
         CS = new LinkedList<>(Arrays.asList("121", "187", "250", "311", "383"));
         Math = new LinkedList<>(Arrays.asList("131", "132", "233", "235", "311"));
@@ -51,22 +67,58 @@ public class TutorFindListActivity extends AppCompatActivity {
         classes.put("Public Health",PH);
         classes.put("Biochemistry",BC);
 
-        Bundle extras = getIntent().getExtras();
-        index= extras.getIntArray("major and class");
+       // Bundle extras = getIntent().getExtras();
+       // index= extras.getIntArray("major and class");
 
         /*TextView a = (TextView) findViewById(R.id.test);
         a.setText(majors.get(index[0]));*/
-
-
+        tutorList = (ListView) findViewById(R.id.tutor_list);
+        CustomAdapter customAdapter = new CustomAdapter();
+        tutorList.setAdapter(customAdapter);
 
     }
 
     //on back button clicked
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id= item.getItemId();
 
         this.finish();
         return super.onOptionsItemSelected(item);
     }
+
+    class CustomAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return tutorImages.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertview, ViewGroup parent) {
+
+
+            View view=getLayoutInflater().inflate(R.layout.customtutorlist_layout, null);
+            CircleImageView im = (CircleImageView) view.findViewById(R.id.imagePerson);
+            TextView nameTutor= (TextView) view.findViewById(R.id.textName);
+           // TextView tutorMajor = (TextView) view.findViewById(R.id.textMajor);
+
+            im.setImageResource(tutorImages[position]);
+            nameTutor.setText("Sushant");
+           // tutorMajor.setText("Computer Science");
+
+            return view;
+        }
+    }
+
+
 }
