@@ -333,26 +333,28 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+/*
             HttpClient client = HttpClientBuilder.create().build();
-            HttpPost post = new HttpPost("http://localhost:8080/api/login");
+            HttpPost post = new HttpPost("http://ham.sharath.pro/api/login");
 
             // Create some NameValuePair for HttpPost parameters
             List<NameValuePair> arguments = new ArrayList<>(2);
-            arguments.add(new BasicNameValuePair("username", mEmail));
-            arguments.add(new BasicNameValuePair("password", mPassword));
+            arguments.add(new BasicNameValuePair("username", "demo@gmail.com"));
+            arguments.add(new BasicNameValuePair("password", "password"));
 
             try {
                 post.setEntity(new UrlEncodedFormEntity(arguments));
                 HttpResponse response = client.execute(post);
                 if(response.toString().contains("200 OK")) {
                     return true;
-                }
+               }
 
             } catch (IOException e) {
                 return false;
             }
-            return false;
+            return false;*/
+
+        return true;
         }
 
         @Override
