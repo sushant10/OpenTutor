@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ha.sushantrao.opentutor.SplashActivity"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/splashImage"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/text"
+        android:layout_marginTop="150dp" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/splashImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="OpenTutor"
+        android:textColor="#ffffff"
+        android:textSize="27dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
