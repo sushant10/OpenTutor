@@ -1,13 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ha.sushantrao.opentutor.ProfileConfirmActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageDp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
     <TextView
+        android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/test"/>
+        android:layout_below="@+id/imageDp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Name"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Description would go here"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/imageRating"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textDescription"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"/>
+
+     <TextView
+         android:id="@+id/textRating"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@id/imageRating"
+         android:layout_alignTop="@id/imageRating"
+         android:layout_alignRight="@id/imageRating"
+         android:layout_alignBottom="@id/imageRating"
+         android:layout_margin="1dp"
+         android:gravity="center"
+         android:text="4.5"
+         android:textColor="#ffffff" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--  <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/test"/> -->
+
+</RelativeLayout>
