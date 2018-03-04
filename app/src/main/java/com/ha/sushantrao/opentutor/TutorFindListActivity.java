@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -50,9 +51,9 @@ public class TutorFindListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tutorImages = new int[]{R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
-        tutorNames = new String[]{"Sushant Rao","Rohan Nanda","Shubham Batra","Sharath Ramkumar","Harriet Smith","Catherine Walsh"};
+        tutorNames = new String[]{"Sushant Rao", "Rohan Nanda", "Shubham Batra", "Sharath Ramkumar", "Harriet Smith", "Catherine Walsh"};
         tutorList = (ListView) findViewById(R.id.tutor_list);
-        rating = new String[]{"5.0","4.5","3.2","1.5","4.2","4.6"};
+        rating = new String[]{"5.0", "4.5", "3.2", "1.5", "4.2", "4.6"};
 
         majors = new LinkedList<>(Arrays.asList("Computer Science", "Mathematics", "Computer Engineering", "Public Health", "Biochemistry", "Public Health"));
         CS = new LinkedList<>(Arrays.asList("121", "187", "250", "311", "383"));
@@ -63,14 +64,14 @@ public class TutorFindListActivity extends AppCompatActivity {
 
         classes = new HashMap<String, List<String>>();
 
-        classes.put("Computer Science",CS);
-        classes.put("Mathematics",Math);
-        classes.put("Computer Engineering",ECE);
-        classes.put("Public Health",PH);
-        classes.put("Biochemistry",BC);
+        classes.put("Computer Science", CS);
+        classes.put("Mathematics", Math);
+        classes.put("Computer Engineering", ECE);
+        classes.put("Public Health", PH);
+        classes.put("Biochemistry", BC);
 
-       // Bundle extras = getIntent().getExtras();
-       // index= extras.getIntArray("major and class");
+        // Bundle extras = getIntent().getExtras();
+        // index= extras.getIntArray("major and class");
 
         /*TextView a = (TextView) findViewById(R.id.test);
         a.setText(majors.get(index[0]));*/
@@ -78,21 +79,24 @@ public class TutorFindListActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter();
         tutorList.setAdapter(customAdapter);
 
-        tutorList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        tutorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                Intent intent = new Intent(TutorFindListActivity.this, TutorFindListActivity.class);
-                intent.putExtra("name",tutorNames[(int)tutorList.getSelectedItemId()]);
-                intent.putExtra("major",majors.get((int)tutorList.getSelectedItemId()));
-                intent.putExtra("rating",rating[(int)tutorList.getSelectedItemId()]);
-                intent.putExtra("profile image", tutorImages[(int)tutorList.getSelectedItemId()]);
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(TutorFindListActivity.this, ProfileConfirmActivity.class);
+                intent.putExtra("name",tutorNames[position]);
+                intent.putExtra("major",majors.get(position));
+                intent.putExtra("rating",rating[position]);
+                intent.putExtra("profile image", tutorImages[position]);
 
                 startActivity(intent);
             }
-        });
 
+
+        });
     }
+
 
     //on back button clicked
     @Override
