@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, FindtutorActivity.class));
             }
         });
+        FButton frequest= (FButton) findViewById(R.id.requestTutor);
+        frequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TutorRequestActivity.class));
+            }
+        });
     }
 
 }
