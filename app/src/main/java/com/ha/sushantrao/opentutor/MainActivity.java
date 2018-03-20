@@ -8,7 +8,23 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import org.apache.http.HttpHost;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HttpContext;
+
+import java.io.IOException;
+
 import info.hoang8f.widget.FButton;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +57,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TutorRequestActivity.class));
             }
         });
+        TextView check= (TextView) findViewById(R.id.check) ;
+
+        OkHttpClient client = new OkHttpClient();
+
+
+
+
+            Request request = new Request.Builder()
+                    .url("http://198.199.120.24:5000/")
+                    .build();
+        Response response;
+        try {
+                response = client.newCall(request).execute();
+              check.setText(response.body().string());
+            }
+            catch (IOException e) {
+                check.setText("request");
+
+            }
+
+
+
+
+
     }
+
 
 }
