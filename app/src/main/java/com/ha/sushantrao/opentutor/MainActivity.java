@@ -1,31 +1,31 @@
 package com.ha.sushantrao.opentutor;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
-import org.apache.http.HttpHost;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.HttpContext;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
-import java.io.IOException;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 
 import info.hoang8f.widget.FButton;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -57,28 +57,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TutorRequestActivity.class));
             }
         });
-        TextView check= (TextView) findViewById(R.id.check) ;
-
-        OkHttpClient client = new OkHttpClient();
+        final TextView check= (TextView) findViewById(R.id.check) ;
 
 
 
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://198.199.120.24/allusers";
 
-            Request request = new Request.Builder()
-                    .url("http://198.199.120.24:5000/")
-                    .build();
-        Response response;
-        try {
-                response = client.newCall(request).execute();
-              check.setText(response.body().string());
-            }
-            catch (IOException e) {
-                check.setText("request");
-
-            }
-
-
-
+        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>()
+                {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        // display response
+                        check.setText("Response is: "+ response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        check.setText("Response is: "+ error.toString());
+                    }
+                }
+        );
+        // add it to the RequestQueue
+        queue.add(getRequest);
 
 
     }

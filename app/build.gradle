@@ -51,4 +51,5 @@ dependencies {
     compile 'org.apache.httpcomponents:httpcore:4.4.1'
     //noinspection DuplicatePlatformClasses
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.android.volley:volley:1.1.0'
 }
