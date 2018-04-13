@@ -30,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -52,6 +53,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -346,36 +348,47 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
 
             RequestQueue login = Volley.newRequestQueue(getBaseContext());
             String url ="http://198.199.120.24/login";
-            final boolean[] h = {false};
-            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            // response
-                            h[0] = true;
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // error
-                            h[0] =false;
-                        }
-                    }
-            ) {
-                @Override
-                protected Map<String, String> getParams() {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("username", mEmail);
-                    //params.put("password", mPassword);
+            final int[] h={0};
+            final char[] a = {'d'};
 
-                    return params;
-                }
-            };
 
-            // add it to the RequestQueue
-            login.add(postRequest);
-        return h[0];
+                    StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    // response
+                                    a[0] ='t';
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    // error
+                                    a[0] = 'f';
+                                }
+                            }
+                    ) {
+                        @Override
+                        protected Map<String, String> getParams() {
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("username", mEmail);
+                            //params.put("password", mPassword);
+
+                            return params;
+                        }
+                       
+                    };
+
+                    // add it to the RequestQueue
+                    login.add(postRequest);
+
+            while(a[0]=='d')
+            {}
+            if(a[0]=='t')
+                return true;
+            else
+                return false;
+
         }
 
         @Override
