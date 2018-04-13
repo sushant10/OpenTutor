@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://198.199.120.24/allusers";
+        String url ="http://198.199.120.24/find/Mathematics&131";
 
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>()

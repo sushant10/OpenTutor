@@ -30,6 +30,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -37,10 +45,13 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -332,28 +343,39 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-/*
-            HttpClient client = HttpClientBuilder.create().build();
-            HttpPost post = new HttpPost("http://ham.sharath.pro/api/login");
 
-            // Create some NameValuePair for HttpPost parameters
-            List<NameValuePair> arguments = new ArrayList<>(2);
-            arguments.add(new BasicNameValuePair("username", "demo@gmail.com"));
-            arguments.add(new BasicNameValuePair("password", "password"));
+            RequestQueue login = Volley.newRequestQueue(getBaseContext());
+            String url ="http://198.199.120.24/login";
+            final boolean[] h = {false};
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            // response
+                            h[0] = true;
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // error
+                            h[0] =false;
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("username", mEmail);
+                    //params.put("password", mPassword);
 
-            try {
-                post.setEntity(new UrlEncodedFormEntity(arguments));
-                HttpResponse response = client.execute(post);
-                if(response.toString().contains("200 OK")) {
-                    return true;
-               }
+                    return params;
+                }
+            };
 
-            } catch (IOException e) {
-                return false;
-            }
-            return false;*/
-
-        return true;
+            // add it to the RequestQueue
+            login.add(postRequest);
+        return h[0];
         }
 
         @Override
