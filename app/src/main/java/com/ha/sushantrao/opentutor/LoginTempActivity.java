@@ -235,7 +235,7 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > -1;
     }
 
     /**
@@ -376,7 +376,7 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
 
                             return params;
                         }
-                       
+
                     };
 
                     // add it to the RequestQueue
@@ -384,11 +384,16 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
 
             while(a[0]=='d')
             {}
-            if(a[0]=='t')
+            if(a[0]=='t') {
+                a[0]='d';
+                login.getCache().clear();
                 return true;
-            else
+            }
+            else {
+                a[0]='d';
+                login.getCache().clear();
                 return false;
-
+            }
         }
 
         @Override
