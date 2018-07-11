@@ -1,5 +1,5 @@
+![alt text][banner] 
 # OpenTutor
-![alt text][screen1] 
 ## Tutoring App
 
 ### Won 2nd place in *HackAmherst* 2018.
@@ -8,6 +8,10 @@ An android app that makes it easier to get help around campus with classes. You 
 
 Built using Java in Android Studio
 
+![alt text][screen1] 
+![alt text][screen2] 
 
 
-[screen1]: https://github.com/sushant10/OpenTutor/blob/master/Screens/online3.png 
+[banner]: https://github.com/sushant10/OpenTutor/blob/master/Screens/banner.jpg 
+[screen1]: https://github.com/sushant10/OpenTutor/blob/master/Screens/online3.png
+[screen2]: https://github.com/sushant10/OpenTutor/blob/master/Screens/online4.jpg
