@@ -345,13 +345,13 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+             final String TAG = "MyTag";
             RequestQueue login = Volley.newRequestQueue(getBaseContext());
             String url ="http://198.199.120.24/login";
             final int[] h={0};
             final char[] a = {'d'};
 
-
+/*
                     StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                             new Response.Listener<String>() {
                                 @Override
@@ -378,22 +378,24 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
                         }
 
                     };
-
+            postRequest.setTag(TAG);
                     // add it to the RequestQueue
+
                     login.add(postRequest);
 
             while(a[0]=='d')
             {}
             if(a[0]=='t') {
                 a[0]='d';
-                login.getCache().clear();
+                login.cancelAll(TAG);
                 return true;
             }
             else {
                 a[0]='d';
-                login.getCache().clear();
+                login.cancelAll(TAG);
                 return false;
-            }
+            }*/
+    return true;
         }
 
         @Override
@@ -413,7 +415,9 @@ public class LoginTempActivity extends AppCompatActivity implements LoaderCallba
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+
         }
+
     }
 }
 

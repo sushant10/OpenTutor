@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TutorRequestActivity.class));
             }
         });
-        final TextView check= (TextView) findViewById(R.id.check) ;
+     //   final TextView check= (TextView) findViewById(R.id.check) ;
 
 
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://198.199.120.24/find/Mathematics&131";
-
+   //     RequestQueue queue = Volley.newRequestQueue(this);
+   //     String url ="http://198.199.120.24/find/Mathematics&131";
+/*
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>()
                 {
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
         // add it to the RequestQueue
-        queue.add(getRequest);
+        queue.add(getRequest);*/
 
 
     }
